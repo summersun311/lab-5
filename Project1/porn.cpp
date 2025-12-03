@@ -9,18 +9,18 @@ int main() {
     
     int n, m;
     
-    cout << "Введите количество строк и столбцов" << endl;
-    cout << "Введите N: ";
+    cout << "vvedite kolvo strok and stolbtsov" << endl;
+    cout << " N: ";
     cin >> n;
     cout << endl;
-    cout << "Введите M: ";
+    cout << " M: ";
     cin >> m;
 
     int** mtrx = new int* [n];
     for (int i = 0; i < n; i++)
         mtrx[i] = new int[m];
 
-    cout << "Введи элементы матрицы: \n";
+    cout << "vvedite elements matritsi: \n";
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
             cin >> mtrx[i][j];
@@ -28,27 +28,27 @@ int main() {
     int osobi;
     osobi = 0;
 
-    //берем sum который будет хроанить сумму столбцуа      berem sum that will save sum stolbtsa
+    //ГЎГҐГ°ГҐГ¬ sum ГЄГ®ГІГ®Г°Г»Г© ГЎГіГ¤ГҐГІ ГµГ°Г®Г Г­ГЁГІГј Г±ГіГ¬Г¬Гі Г±ГІГ®Г«ГЎГ¶ГіГ       berem sum that will save sum stolbtsa
     for (int j = 0; j < m; j++) {
         for (int i = 0; i < n; i++) {
             int chislo = mtrx[i][j];
             int sum = 0;
 
-            //row заново перебирает все строки столбца и суммирует его элементы короч    row  zanogo perebiraet vse stroki stolbtsa & summiruet ego elemenets krch
+            //row Г§Г Г­Г®ГўГ® ГЇГҐГ°ГҐГЎГЁГ°Г ГҐГІ ГўГ±ГҐ Г±ГІГ°Г®ГЄГЁ Г±ГІГ®Г«ГЎГ¶Г  ГЁ Г±ГіГ¬Г¬ГЁГ°ГіГҐГІ ГҐГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ» ГЄГ®Г°Г®Г·    row  zanogo perebiraet vse stroki stolbtsa & summiruet ego elemenets krch
             for (int row = 0; row < n; row++) {
                 sum += mtrx[row][j];
             }
 
-            // Проверяем условие "особого" элемента     checking uslovia osobogo element
+            // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬ ГіГ±Г«Г®ГўГЁГҐ "Г®Г±Г®ГЎГ®ГЈГ®" ГЅГ«ГҐГ¬ГҐГ­ГІГ      checking uslovia osobogo element
             if (chislo > (sum - chislo)) {
                 osobi++;
             }
         }
     }
 
-    cout << "Количество особых элементов: " << osobi << endl;
+    cout << "kolvo osobih elements: " << osobi << endl;
 
-    // Освобождение памяти
+    // ГЋГ±ГўГ®ГЎГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГ Г¬ГїГІГЁ
     for (int i = 0; i < n; i++)
         delete[] mtrx[i];
     delete[] mtrx;
